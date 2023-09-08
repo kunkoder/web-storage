@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bookshelf</title>
+    <link rel="icon" href="img/icon.ico" type="image/x-icon" />
+
+    <!-- Core CSS Files -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/atlantis.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body data-background-color="custom" custom-background="img/bg-math.png"
+    style="background-attachment: fixed; background-position: center;">
+    <div class="wrapper horizontal-layout-3 fullwidth-style">
+
+        <!-- Header -->
+        <div class="main-header no-box-shadow" data-background-color="transparent">
+            <div class="nav-top">
+                <div class="container d-flex flex-row">
+                    <a href="home-index.html" class="logo logo-fixed d-flex align-items-center">
+                        <img src="img/gemapp-white.png" alt="navbar brand" class="navbar-brand mt-3" height="30">
+                        <img src="img/gemapp-secondary.png" alt="navbar brand"
+                            class="navbar-brand navbar-brand-logo-fixed" height="30">
+                    </a>
+                    <nav class="navbar navbar-header navbar-expand-lg p-0">
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Panel -->
+        <div class="main-panel">
+            <div class="container">
+                <div class="page-inner">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="card">
+                                <div class="card-header text-center">
+                                    <h3>Bookshelf Apps</h3>
+                                    <p class="card-category">
+                                        Input Daftar Buku
+                                    </p>
+                                </div>
+                                <div class="card-body">
+                                    <form id="input-buku">
+                                        <div class="form-group row mt-2">
+                                            <label for="judul"
+                                                class="col-form-label col-lg-2 col-md-2 col-sm-12">Judul</label>
+                                            <div class="col-lg-10 col-md-10 col-sm-12">
+                                                <input type="text" id="judul" name="judul" class="form-control"
+                                                    required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row mt-2">
+                                            <label for="penulis"
+                                                class="col-form-label col-lg-2 col-md-2 col-sm-12">Penulis</label>
+                                            <div class="col-lg-10 col-md-10 col-sm-12">
+                                                <input type="text" id="penulis" name="penulis" class="form-control"
+                                                    required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row mt-2">
+                                            <label for="tahun"
+                                                class="col-form-label col-lg-2 col-md-2 col-sm-12">Tahun</label>
+                                            <div class="col-lg-10 col-md-10 col-sm-12">
+                                                <input type="number" id="tahun" name="tahun" class="form-control"
+                                                    required>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md mt-3">
+                                                <input type="checkbox" name="selesai" id="selesai" class="switch">
+                                                <label for="selesai" class="switch-label"><b>Selesai Dibaca</b></label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md mt-2">
+                                                <button type="submit" class="btn btn-secondary col-12">Tambah
+                                                    Daftar</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header text-center">
+                                    <h3>Bookshelf Apps</h3>
+                                    <p class="card-category">
+                                        Rak Buku
+                                    </p>
+                                </div>
+                                <div class="card-body">
+                                    <form id="cari-buku">
+                                        <div class="form-group row mt-2">
+                                            <label for="cari-judul"
+                                                class="col-form-label col-lg-2 col-md-2 col-sm-12">Judul</label>
+                                            <div class="col-lg-10 col-md-10 col-sm-12">
+                                                <input type="text" id="cari-judul" name="cari-judul" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md mt-2">
+                                                <button type="submit" class="btn btn-secondary col-12">Cari</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="accordion accordion-secondary mt-5">
+                                                <div class="card">
+                                                    <div class="card-header collapsed" id="headingOne"
+                                                        data-toggle="collapse" data-target="#collapseOne"
+                                                        aria-expanded="false" aria-controls="collapseOne">
+                                                        <div class="span-icon">
+                                                            <i class="fas fa-chart-bar"></i>
+                                                        </div>
+                                                        <div class="span-title">Daftar Buku Belum Dibaca</div>
+                                                    </div>
+                                                    <div id="collapseOne" class="collapse collapse-rank show"
+                                                        aria-labelledby="headingOne" data-parent="#accordion">
+                                                        <div class="card-body">
+                                                            <div class="table-responsive">
+                                                                <table
+                                                                    class="table table-head-bg-secondary table-bordered-bd-secondary mt-3"
+                                                                    id="daftar-belum">
+                                                                    <thead>
+                                                                        <tr class="text-center">
+                                                                            <th style="min-width: 8px">No</th>
+                                                                            <th style="min-width: 250px">Judul</th>
+                                                                            <th style="min-width: 200px">Penulis</th>
+                                                                            <th style="min-width: 20px">Tahun</th>
+                                                                            <th style="min-width: 150px">Keterangan</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody id="belum-dibaca">
+                                                                        <tr>
+                                                                            <td class="text-center">1</td>
+                                                                            <td>Tentang Kamu</td>
+                                                                            <td>Tere Liye</td>
+                                                                            <td>2016</td>
+                                                                            <td>
+                                                                                <div class="col btn-group text-white"
+                                                                                    role="group">
+                                                                                    <a class="btn btn-info" href
+                                                                                        id="row-info">Selesai Dibaca</a>
+                                                                                    <a class="btn btn-warning" href
+                                                                                        id="row-edit"
+                                                                                        data-toggle="modal"
+                                                                                        data-target="#modal-edit-buku">Edit
+                                                                                        Buku</a>
+                                                                                    <a class="btn btn-danger" href
+                                                                                        id="row-hapus"
+                                                                                        data-toggle="modal"
+                                                                                        data-target="#modal-hapus-buku">Hapus
+                                                                                        Buku</a>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header collapsed" id="headingTwo"
+                                                        data-toggle="collapse" data-target="#collapseTwo"
+                                                        aria-expanded="false" aria-controls="collapseTwo">
+                                                        <div class="span-icon">
+                                                            <i class="fas fa-calculator"></i>
+                                                        </div>
+                                                        <div class="span-title">
+                                                            Daftar Buku Selesai Dibaca
+                                                        </div>
+                                                    </div>
+                                                    <div id="collapseTwo" class="collapse collapse-manual show"
+                                                        aria-labelledby="headingTwo" data-parent="#accordion">
+                                                        <div class="card-body">
+                                                            <div class="table-responsive">
+                                                                <table
+                                                                    class="table table-head-bg-secondary table-bordered-bd-secondary mt-3"
+                                                                    id="daftar-selesai">
+                                                                    <thead>
+                                                                        <tr class="text-center">
+                                                                            <th style="min-width: 8px">No</th>
+                                                                            <th style="min-width: 250px">Judul</th>
+                                                                            <th style="min-width: 200px">Penulis</th>
+                                                                            <th style="min-width: 20px">Tahun</th>
+                                                                            <th style="min-width: 150px">Keterangan</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody id="selesai-dibaca">
+                                                                        <tr>
+                                                                            <td class="text-center">1</td>
+                                                                            <td>Tentang Kamu</td>
+                                                                            <td>Tere Liye</td>
+                                                                            <td>2016</td>
+                                                                            <td>
+                                                                                <div class="col btn-group text-white"
+                                                                                    role="group">
+                                                                                    <a class="btn btn-info" href
+                                                                                        id="row-info">Selesai Dibaca</a>
+                                                                                    <a class="btn btn-warning" href
+                                                                                        id="row-edit"
+                                                                                        data-toggle="modal"
+                                                                                        data-target="#modal-edit-buku">Edit
+                                                                                        Buku</a>
+                                                                                    <a class="btn btn-danger" href
+                                                                                        id="row-hapus"
+                                                                                        data-toggle="modal"
+                                                                                        data-target="#modal-hapus-buku">Hapus
+                                                                                        Buku</a>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="text-center text-white mt-2">
+        <h6>©
+            <script>
+                document.write(new Date().getFullYear())
+            </script>, made with <i class="fa fa-heart heart text-danger"></i> by <a
+                href="https://github.com/kunkoder">kunkoder</a>
+        </h6>
+    </div>
+    </div>
+
+    <!-- Modal Edit -->
+    <div class="modal fade" id="modal-edit-buku" tabindex="-1" role="dialog" aria-labelledby="modal-edit-buku-label"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form id="edit-buku">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal-edit-buku-label">
+                            Edit Buku
+                        </h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card-body">
+                            <div class="form-group row mt-2">
+                                <label for="edit-judul" class="col-form-label col-lg-2 col-md-2 col-sm-12">Judul</label>
+                                <div class="col-lg-10 col-md-10 col-sm-12">
+                                    <input type="hidden" name="id" id="id">
+                                    <input type="text" id="edit-judul" name="edit-judul" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="form-group row mt-2">
+                                <label for="edit-penulis" class="col-form-label col-lg-2 col-md-2 col-sm-12">Penulis</label>
+                                <div class="col-lg-10 col-md-10 col-sm-12">
+                                    <input type="text" id="edit-penulis" name="edit-penulis" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="form-group row mt-2">
+                                <label for="edit-tahun" class="col-form-label col-lg-2 col-md-2 col-sm-12">Tahun</label>
+                                <div class="col-lg-10 col-md-10 col-sm-12">
+                                    <input type="number" id="edit-tahun" name="edit-tahun" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-border btn-secondary" data-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-secondary">Ubah</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Hapus -->
+    <div class="modal fade" id="modal-hapus-buku" tabindex="-1" role="dialog" aria-labelledby="modal-hapus-buku-label"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form id="hapus-buku">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal-hapus-buku-label">
+                            Hapus Buku
+                        </h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="pesan-hapus">
+                        <input type="hidden" name="id" id="id">
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-border btn-danger" data-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-danger">Hapus</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core JS Files -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/fontawesome.min.js"></script>
+    <script src="js/atlantis.min.js"></script>
+
+    <!-- Bookshelf -->
+    <script src="js/service-worker.js"></script>
+    <script src="js/local-storage.js"></script>
+    <script>
+        $(document).on('click', '#row-edit', function () {
+            var id = $(this).data('id');
+            var judul = $(this).data('judul');
+            var penulis = $(this).data('penulis');
+            var tahun = $(this).data('tahun');
+            var selesai = $(this).data('selesai');
+            $('#edit-buku #id').val(id);
+            $('#edit-buku #judul').val(judul);
+            $('#edit-buku #penulis').val(penulis);
+            $('#edit-buku #tahun').val(tahun);
+        });
+        $(document).on('click', '#row-hapus', function () {
+            var id = $(this).data('id');
+            var judul = $(this).data('judul');
+            $('#hapus-buku #id').val(id);
+            $('#pesan-hapus').append(
+                `<div class="card-body">
+                Hapus buku \"${judul}\" dari daftar?
+            </div>`
+            );
+        });
+    </script>
+</body>
+
+</html>
